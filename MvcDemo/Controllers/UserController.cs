@@ -9,9 +9,9 @@ namespace MvcDemo.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public string Index()
+        public ActionResult Index()
         {
-            return "Index page...";
+            return View();
         }
         public string Welcome()
         {
