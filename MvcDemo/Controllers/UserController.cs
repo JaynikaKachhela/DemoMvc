@@ -17,9 +17,11 @@ namespace MvcDemo.Controllers
         {
             return "welcome to JP...";
         }
-        public string Count(int count,string name)
+        public ActionResult Count(int count,string name)
         {
-            return HttpUtility.HtmlEncode("The number given is "+count+". Name of User : "+name);
+            ViewBag.message="Name of User : "+name;
+            ViewBag.count = count;
+            return View();
         }
     }
 }
