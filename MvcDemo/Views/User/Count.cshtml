@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    ViewBag.title = "Count";
+}
+
+<h2>No of Product</h2>
+<ul>
+    @for(int i=0;i<ViewBag.count;i++)
+    {
+        <li>Product @i</li>
+    }
+
+</ul>

@@ -1,0 +1,73 @@
+[1mdiff --git a/MvcDemo/Controllers/UserController.cs b/MvcDemo/Controllers/UserController.cs[m
+[1mindex 58f855c..a22de9c 100644[m
+[1m--- a/MvcDemo/Controllers/UserController.cs[m
+[1m+++ b/MvcDemo/Controllers/UserController.cs[m
+[36m@@ -17,9 +17,11 @@[m [mpublic string Welcome()[m
+         {[m
+             return "welcome to JP...";[m
+         }[m
+[31m-        public string Count(int count,string name)[m
+[32m+[m[32m        public ActionResult Count(int count,string name)[m
+         {[m
+[31m-            return HttpUtility.HtmlEncode("The number given is "+count+". Name of User : "+name);[m
+[32m+[m[32m            ViewBag.message="Name of User : "+name;[m
+[32m+[m[32m            ViewBag.count = count;[m
+[32m+[m[32m            return View();[m
+         }[m
+     }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/MvcDemo/MvcDemo.csproj b/MvcDemo/MvcDemo.csproj[m
+[1mindex d992a75..ab2a77f 100644[m
+[1m--- a/MvcDemo/MvcDemo.csproj[m
+[1m+++ b/MvcDemo/MvcDemo.csproj[m
+[36m@@ -269,6 +269,7 @@[m
+     <Content Include="Views\Shared\Lockout.cshtml" />[m
+     <Content Include="Views\Shared\_LoginPartial.cshtml" />[m
+     <Content Include="Views\User\Index.cshtml" />[m
+[32m+[m[32m    <Content Include="Views\User\Count.cshtml" />[m
+   </ItemGroup>[m
+   <ItemGroup>[m
+     <Folder Include="App_Data\" />[m
+[1mdiff --git a/MvcDemo/Views/Shared/_Layout.cshtml b/MvcDemo/Views/Shared/_Layout.cshtml[m
+[1mindex d5bb048..b6c82a6 100644[m
+[1m--- a/MvcDemo/Views/Shared/_Layout.cshtml[m
+[1m+++ b/MvcDemo/Views/Shared/_Layout.cshtml[m
+[36m@@ -17,7 +17,7 @@[m
+                     <span class="icon-bar"></span>[m
+                     <span class="icon-bar"></span>[m
+                 </button>[m
+[31m-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })[m
+[32m+[m[32m                @Html.ActionLink("MVC Product", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })[m
+             </div>[m
+             <div class="navbar-collapse collapse">[m
+                 <ul class="nav navbar-nav">[m
+[1mdiff --git a/MvcDemo/Views/User/Index.cshtml b/MvcDemo/Views/User/Index.cshtml[m
+[1mindex 34ea1c6..2735f5e 100644[m
+[1m--- a/MvcDemo/Views/User/Index.cshtml[m
+[1m+++ b/MvcDemo/Views/User/Index.cshtml[m
+[36m@@ -2,7 +2,7 @@[m
+     Layout = "~/Views/Shared/_Layout.cshtml";[m
+ }[m
+ @{ [m
+[31m-    ViewBag.title = "Index";[m
+[32m+[m[32m    ViewBag.title = "Products";[m
+ }[m
+ [m
+[31m-<h2>...Index Page...</h2>[m
+[32m+[m[32m<h2>...Product List...</h2>[m
+[1mdiff --git a/MvcDemo/bin/MvcDemo.dll b/MvcDemo/bin/MvcDemo.dll[m
+[1mindex bad861e..b96f53f 100644[m
+Binary files a/MvcDemo/bin/MvcDemo.dll and b/MvcDemo/bin/MvcDemo.dll differ
+[1mdiff --git a/MvcDemo/bin/MvcDemo.pdb b/MvcDemo/bin/MvcDemo.pdb[m
+[1mindex a400955..6eee1db 100644[m
+Binary files a/MvcDemo/bin/MvcDemo.pdb and b/MvcDemo/bin/MvcDemo.pdb differ
+[1mdiff --git a/MvcDemo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache b/MvcDemo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache[m
+[1mindex 9800f70..620153c 100644[m
+Binary files a/MvcDemo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache and b/MvcDemo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache differ
+[1mdiff --git a/MvcDemo/obj/Debug/MvcDemo.dll b/MvcDemo/obj/Debug/MvcDemo.dll[m
+[1mindex bad861e..b96f53f 100644[m
+Binary files a/MvcDemo/obj/Debug/MvcDemo.dll and b/MvcDemo/obj/Debug/MvcDemo.dll differ
+[1mdiff --git a/MvcDemo/obj/Debug/MvcDemo.pdb b/MvcDemo/obj/Debug/MvcDemo.pdb[m
+[1mindex a400955..6eee1db 100644[m
+Binary files a/MvcDemo/obj/Debug/MvcDemo.pdb and b/MvcDemo/obj/Debug/MvcDemo.pdb differ
